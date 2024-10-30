@@ -1,9 +1,14 @@
 const loadCategories = async () => {
     const res = await fetch(
-        'https://openapi.programming-hero.com/api/peddy/categories'
-    )
+        'https://openapi.programming-hero.com/api/peddy/categories')
     const data = await res.json()
     displayCategories(data.categories)
+}
+
+const loadAllPets = async () => {
+    const res = await fetch ('https://openapi.programming-hero.com/api/peddy/pets')
+    const data = await res.json()
+    console.log(data.pets)
 }
 
 
@@ -19,10 +24,11 @@ const displayCategories = data => {
    <p class="text-xl font-bold">${category.category}</p>
 </button>
 `
-categoryContainer.appendChild(div);
+        categoryContainer.appendChild(div);
     })
 }
 
 
 
 loadCategories();
+loadAllPets()
